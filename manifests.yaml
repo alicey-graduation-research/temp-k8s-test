@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: iot-test
+spec:
+  containers:
+    - name: iot-test
+      image: raspbian/stretch
+      securityContext:
+        privileged: true
