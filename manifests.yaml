@@ -1,8 +1,9 @@
 apiVersion: apps/v1
-kind: DaemonSet
+kind: Deployment
 metadata:
   name: dht11-server
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: dht11-server
@@ -35,11 +36,9 @@ metadata:
   name: dht11-svc
 spec:
   ports:
-  - name: dht11-server
-    nodePort: 32121
+  - nodePort: 32121
     port: 32121
     protocol: TCP
-    targetPort: dht11-server
   selector:
     app: dht11-server
   type: NodePort
